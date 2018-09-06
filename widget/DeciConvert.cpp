@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 
 int P=2,len=10;
 

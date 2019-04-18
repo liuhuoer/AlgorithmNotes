@@ -1,6 +1,74 @@
 #include <cstdio>
 #include <cstring>
 
+
+//version_2
+struct pat
+{
+    char name[15], pass[15];
+    bool flag;
+}pat[1010];
+
+int main()
+{
+    //input to n, char name[][], char pass[][]
+    int n;
+    scanf("%d", &n);
+    for(int i = 0; i < n; ++i)
+    {
+        scanf("%s %s", &pat[i].name, &pat[i].pass);
+        pat[i].flag = false;
+    }
+    //check every port in pass
+    int len;
+    int num_change[1010] = {0};     //the number of changed
+    int num = 0;                    //the sum of changed
+    for(int i = 0; i < n; ++i)
+    {
+        len = strlen(pat[i].pass);
+        //record sum of the changed no. and numbe
+        for(int j = 0; j < len; ++j)
+        {
+            if(pat[i].pass[j] == '1')
+            {
+                pat[i].flag = true;
+                pat[i].pass[j] = '@';
+            }
+            else if(pat[i].pass[j] == '0')
+            {
+                pat[i].flag = true;
+                pat[i].pass[j] = '%';
+            }
+            else if(pat[i].pass[j] == 'l')
+            {
+                pat[i].flag = true;
+                pat[i].pass[j] = 'L';
+            }
+            else if(pat[i].pass[j] == 'O')
+            {
+                pat[i].flag = true;
+                pat[i].pass[j] = 'o';
+            }
+            else
+                continue;
+        }
+        if(pat[i].flag)
+            ++num;
+    }
+     //output
+    if(num == 0)
+        printf("There is %d %s and no account is modified\n", n, n == 1? "account" : "accounts");
+    else
+        printf("%d\n", num);
+    for(int i = 0; i < n; ++i)
+        if(pat[i].flag) 
+            printf("%s %s\n", pat[i].name, pat[i].pass);
+
+    return 0;
+}
+
+/*
+//version_1
 int main()
 {
     //input to n, char name[][], char pass[][]
@@ -58,3 +126,4 @@ int main()
         printf("%s %s\n", name[num_change[i]], pass[num_change[i]]);
     return 0;
 }
+*/

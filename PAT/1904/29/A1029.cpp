@@ -2,7 +2,7 @@
 
 int main()
 {
-    int n, m, a[105], b[105];
+    int n, m, a[1000010], b[1000010];
     scanf("%d", &n);
     for(int i = 0; i < n; ++i)
     {

@@ -57,7 +57,7 @@ int main()
     }
      //output
     if(num == 0)
-        printf("There is %d %s and no account is modified\n", n, n == 1? "account" : "accounts");
+        printf("There %s %d %s and no account is modified\n",  n == 1? "is" : "are", n, n == 1? "account" : "accounts");
     else
         printf("%d\n", num);
     for(int i = 0; i < n; ++i)

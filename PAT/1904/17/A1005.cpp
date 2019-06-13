@@ -1,18 +1,23 @@
 #include <cstdio>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 const char num[10][10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
 int main()
 {
     //input 
-    int input, sum;
-    scanf("%d", &input);
+    int sum = 0;
+    string input;
+    getline(cin, input);
     //get sum of all the digits of N
-    sum = 0;
-    do{
-        sum += input % 10;
-        input /= 10;
-    }while(input);
+    int len = input.size();
+    for(int i = 0; i < len; ++i)
+    {
+        sum += input[i] - '0';
+    }
     //output every digits of sum in english
     int sum_len = 0;
     int res[10];

@@ -1,14 +1,15 @@
 #include <cstdio>
-#include <vector>
 #include <algorithm>
 
 using namespace std;
+
+typedef long long LL;
 
 int main()
 {
     int m, n, value;
     scanf("%d", &m);
-    int coupons[105], products[105];
+    int coupons[100010], products[100010];
     for(int i = 0; i < m; ++i)
     {
         scanf("%d", &coupons[i]);
@@ -20,17 +21,16 @@ int main()
     }
     sort(coupons, coupons + m);
     sort(products, products + n);
-    int sum = 0;
+    LL sum = 0;
     for(int i = 0; i < n && i < m && coupons[i] < 0 && products[i] < 0; ++i)
-        sum += coupons[i] * products[i];
+        sum += (LL)coupons[i] * products[i];
     
     for(int i = m - 1, j = n - 1; i >= 0 && j >= 0 && coupons[i] > 0 && products[j] > 0; --i, --j)
-        sum += coupons[i] * products[i];
-    printf("%d", sum);
+        sum += (LL)coupons[i] * products[j];
+    printf("%lld\n", sum);
      
     return 0;
 }
-
 
 /*
 20:54

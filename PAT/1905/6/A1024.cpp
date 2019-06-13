@@ -19,7 +19,7 @@ struct Big
             num[i] = a[len - 1 - i] - '0';
     }
     int len;
-    int num[30];
+    int num[1000];
 };
 
 Big add(Big a, Big b)

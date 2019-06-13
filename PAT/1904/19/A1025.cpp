@@ -18,14 +18,15 @@ bool cmp(Student a, Student b)
 {
     if(a.grade != b.grade)
         return a.grade > b.grade;
-    else if(strcmp(a.id, b.id) != 0)
-        return strcmp(a.id, b.id) < 0;
+    //else if(strcmp(a.id, b.id) != 0)
+    else
+        return (strcmp(a.id, b.id) < 0);
 }
 
 int main()
 {
-    //Student stu[30010];
-    Student stu[30];
+    Student stu[30010];
+    //Student stu[30];
     int n;
     scanf("%d", &n);
     int num_stu = 0;

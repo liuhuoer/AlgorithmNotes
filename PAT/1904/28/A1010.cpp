@@ -17,7 +17,7 @@ void init()
         map[c] = c - 'a';
 }
 
-LL convDecimal(char* N1, int radix, LL t)
+LL convDecimal(char N1[], int radix, LL t)
 {
     LL ans = 0;
     int len = strlen(N1);
@@ -108,4 +108,11 @@ int main()
 
 # test case2:
 1 ab 1 2
+
+# test case3:
+s9jix hj 1 36
+
+# test result3:
+2792614
+
 */

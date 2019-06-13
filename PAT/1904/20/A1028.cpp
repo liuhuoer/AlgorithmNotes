@@ -6,14 +6,14 @@ using namespace std;
 
 struct Student
 {
-    char id[6];
+    int id;
     char name[8];
     int grade;
 };
 
 bool cmp_1(Student a, Student b)
 {
-    return strcmp(a.id, b.id) < 0;
+    return a.id < b.id;
 }
 
 bool cmp_2(Student a, Student b)
@@ -21,7 +21,7 @@ bool cmp_2(Student a, Student b)
     if(strcmp(a.name, b.name) != 0)
         return strcmp(a.name, b.name) < 0;
     else
-        return strcmp(a.id, b.id) < 0;
+        return a.id < b.id;
 }
 
 bool cmp_3(Student a, Student b)
@@ -29,7 +29,7 @@ bool cmp_3(Student a, Student b)
     if(a.grade != b.grade )
         return a.grade < b.grade;
     else
-        return strcmp(a.id, b.id) < 0;
+        return a.id < b.id;
 }
 
 int main()
@@ -39,7 +39,7 @@ int main()
     scanf("%d %d", &n, &c);
     for(int i = 0; i < n; ++i)
     {
-        scanf("%s %s %d", &stu[i].id, &stu[i].name, &stu[i].grade);
+        scanf("%d %s %d", &stu[i].id, &stu[i].name, &stu[i].grade);
     }
     if(c == 1)
         sort(stu, stu + n, cmp_1);
@@ -49,7 +49,7 @@ int main()
         sort(stu, stu + n, cmp_3);
     for(int i = 0; i < n; ++i)
     {
-        printf("%s %s %d\n", stu[i].id, stu[i].name, stu[i].grade);
+        printf("%06d %s %d\n", stu[i].id, stu[i].name, stu[i].grade);
     }
     
     return 0;

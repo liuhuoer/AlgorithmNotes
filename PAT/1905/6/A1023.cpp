@@ -54,7 +54,7 @@ bool isSameNums(Big a, Big b)
         ++dic[a.num[i]];
         --dic[b.num[i]];
     }
-    for(int i = 0; i < a.len; ++i)
+    for(int i = 0; i < 10; ++i)
     {
         if(dic[i] != 0)
             return false;

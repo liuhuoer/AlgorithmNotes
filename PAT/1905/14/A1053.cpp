@@ -9,7 +9,77 @@ typedef vector<int> Path;
 int n, s;
 const int MAXN = 105;
 vector<Path> resPath;
+int path[MAXN];
 
+
+// version 2
+
+struct Node
+{
+    int key;
+    vector<int> children;
+} dics[MAXN];
+
+void DFS(int root, int pathNo, int sumKey)
+{
+    if(sumKey > s)
+        return;
+    if(sumKey == s)
+    {
+        if(dics[root].children.size() != 0)
+            return;
+        for(int i = 0; i < pathNo; ++i)
+        {
+            printf("%d", dics[path[i]].key);
+            if(i < pathNo - 1)
+                printf(" ");
+            else
+                printf("\n");
+        }
+        return;
+    }
+    for(int i = 0; i < dics[root].children.size(); ++i)
+    {
+        int child = dics[root].children[i];
+        path[pathNo] = child;
+        DFS(child, pathNo + 1, sumKey + dics[child].key);
+    }
+}
+
+bool cmp(int a, int b)
+{
+    return dics[a].key > dics[b].key;
+}
+
+int main()
+{
+    int m;
+    scanf("%d %d %d", &n, &m, &s);
+    int tmpKey;
+    for(int i = 0; i < n; ++i)
+    {
+        scanf("%d", &tmpKey);
+        dics[i].key = tmpKey;
+    }
+    for(int i = 0, no, k; i < m; ++i)
+    {
+        scanf("%d %d", &no, &k);
+        for(int j = 0, chd; j < k; ++j)
+        {
+            scanf("%d", &chd);
+            dics[no].children.push_back(chd);
+        }
+        sort(dics[no].children.begin(), dics[no].children.end(), cmp);
+    }
+    // DFS
+    path[0] = 0;
+    DFS(0, 1, dics[0].key);
+
+    return 0;
+}
+
+// version 1
+/*
 struct Node
 {
     Node()
@@ -103,6 +173,7 @@ int main()
 
     return 0;
 }
+*/
 
 
 

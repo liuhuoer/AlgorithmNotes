@@ -3,11 +3,13 @@
 
 using namespace std;
 
+int value[100005];
+
 int main()
 {
-    int n, key;
-    scanf("%d %d", &n, &key);
-    int value[105];
+    int n;
+    long long key;
+    scanf("%d %ld", &n, &key);
     for(int i = 0; i < n; ++i)
     {
         scanf("%d", &value[i]);

@@ -24,9 +24,9 @@ int main()
 			flag = false;
 		//output
 		if(flag)
-			printf("Case#%d: true\n", ++count);
+			printf("Case #%d: true\n", ++count);
 		else
-			printf("Case#%d: false\n", ++count);
+			printf("Case #%d: false\n", ++count);
 	}
 	return 0;
 }

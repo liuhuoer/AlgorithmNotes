@@ -8,7 +8,7 @@ struct Mooncake
     {
         num = 0, cost = 0, price = 0;
     }
-    int num;
+    float num;
     float cost;
     float price;
 };
@@ -20,12 +20,12 @@ bool cmp(Mooncake a, Mooncake b)
 
 int main()
 {
-    Mooncake mc[505];
+    Mooncake mc[1005];
     int n, m;
     scanf("%d %d", &n, &m);
     for(int i = 0; i < n; ++i)
     {
-        scanf("%d", &mc[i].num);
+        scanf("%f", &mc[i].num);
     }
     for(int i = 0; i < n; ++i)
     {

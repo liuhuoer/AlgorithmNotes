@@ -33,7 +33,7 @@ bool cmp(Richest a, Richest b)
 
 int main()
 {
-    Richest rich[1010];
+    Richest rich[100010];
     Query query[105];
     int n, m;
     scanf("%d %d", &n, &m);

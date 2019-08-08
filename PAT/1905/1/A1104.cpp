@@ -4,12 +4,12 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    float sum = 0.0;
+    double sum = 0.0;
     //version2
-    float key;
+    double key;
     for(int i = 0; i < n; ++i)
     {
-        scanf("%f", &key);
+        scanf("%lf", &key);
         sum += key * (i + 1) * (n - i);
     }
     /*

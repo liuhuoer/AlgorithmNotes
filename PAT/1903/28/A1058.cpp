@@ -10,7 +10,7 @@ int main()
 	c = (c1 + c2) % Gal;
 	int inc = (c1 + c2) / Gal;
 	b = (b1 + b2 + inc) % Sic;
-	inc = (b1 + b2) / Sic;
+	inc = (b1 + b2 + inc) / Sic;
 	a = a1 + a2 + inc;
 
 	printf("%d.%d.%d", a, b, c);

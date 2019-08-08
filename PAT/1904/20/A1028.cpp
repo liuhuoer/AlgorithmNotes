@@ -7,7 +7,7 @@ using namespace std;
 struct Student
 {
     int id;
-    char name[8];
+    char name[10];
     int grade;
 };
 

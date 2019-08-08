@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int exceed[105];
+int exceed[40005];
 
 struct Student
 {
@@ -103,7 +103,7 @@ int main()
         for(int j = 0; j < sch[i].num_stu; ++j)
         {
             printf("%d", sch[i].stu_admit[j]);
-            if(j != sch[i].num_stu)
+            if(j < sch[i].num_stu - 1)
                 printf(" ");
         }
         printf("\n");

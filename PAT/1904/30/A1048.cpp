@@ -7,7 +7,7 @@ int main()
 {
     int n, key;
     scanf("%d %d", &n, &key);
-    int value[105];
+    int value[100005];
     for(int i = 0; i < n; ++i)
     {
         scanf("%d", &value[i]);

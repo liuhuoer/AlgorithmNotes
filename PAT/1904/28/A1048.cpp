@@ -3,12 +3,12 @@
 
 using namespace std;
 
-int value[105];
+int value[100005];
 
 int binarySearch(int left, int right, int key)
 {
     int mid;
-    while(left < right)
+    while(left <= right)
     {
         mid = (left + right) / 2;
         if(value[mid] == key)
@@ -24,7 +24,7 @@ int binarySearch(int left, int right, int key)
 int main()
 {
     int n, key;
-    scanf("%d %d", &n, &key);
+    scanf("%d%d", &n, &key);
     for(int i = 0; i < n; ++i)
     {
         scanf("%d", &value[i]);
@@ -33,15 +33,15 @@ int main()
     int i;
     for(i = 0; i < n; ++i)
     {
-        int j = binarySearch(i, n - 1, key - value[i]);
-        if(j != -1 && value[j] != key - value[j])
+        int j = binarySearch(0, n - 1, key - value[i]);
+        if(j != -1 && i != j)
         {
             printf("%d %d\n", value[i], value[j]);
             break;
         }
     }
     if(i == n)
-        printf("No solution\n");
+        printf("No Solution\n");
 
     return 0;
 }

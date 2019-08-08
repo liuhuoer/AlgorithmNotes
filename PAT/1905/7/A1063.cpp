@@ -15,7 +15,7 @@ void compare(int a, int b)
         else
             ++totalNum;
     }
-    printf("%.2lf%%\n", sameNum * 100.0 / totalNum);
+    printf("%.1f%%\n", sameNum * 100.0 / totalNum);
 }
 
 int main()

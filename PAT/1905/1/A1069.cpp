@@ -22,10 +22,11 @@ int toNum(int* a, int len)
 void toArr(int* value, int key)
 {
     int count = 0;
-    do{
+    for(int i = 0; i < 4; ++i)
+    {
         value[count++] = key % 10;
         key /= 10;
-    }while(key);
+    }
 }
 
 int main()
@@ -38,10 +39,11 @@ int main()
     {
         toArr(value, key);
 
-        sort(value, value + 4, cmp_d);
-        a = toNum(value, 4);
         sort(value, value + 4);
         b = toNum(value, 4);
+        sort(value, value + 4, cmp_d);
+        a = toNum(value, 4);
+
         res = a - b;
         printf("%04d - %04d = %04d\n", a, b, res);
         key = res;

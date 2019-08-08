@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool dic[100010] = {false};
+int dic[100010];
 
 int main()
 {
@@ -14,19 +14,21 @@ int main()
     {
         int value;
         scanf("%d", &value);
-        dic[value] = true;
+        ++dic[value];
     }
     for(int i = 1; i < m; ++i)
     {
-        if(dic[i] == true && dic[m - i] == true 
-                    && i != m - i 
-                    && m - i > 0)
+        if(dic[i] && dic[m - i]) 
         {
+            if(i == m - i && dic[i] <= 1)
+            {
+                continue;
+            }
             printf("%d %d\n", i, m - i);
             return 0;
         }
     }
-    printf("No Solution");
+    printf("No Solution\n");
 
     return 0;
 }

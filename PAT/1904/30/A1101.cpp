@@ -37,10 +37,11 @@ int main()
         if(flag[i])
         {
             printf("%d", value[i]);
-            if(i != n - 1)
+            if(i < n - 1)
                 printf(" ");
         }
     }
+    printf("\n");
 
     return 0;
 }

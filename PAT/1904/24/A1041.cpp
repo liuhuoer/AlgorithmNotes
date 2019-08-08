@@ -1,8 +1,8 @@
 #include <cstdio>
 #include <cstring>
 
-int input[105];
-int num[105] = {0};
+int input[100005];
+int num[100005] = {0};
 
 int main()
 {

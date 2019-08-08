@@ -5,28 +5,29 @@
 #include<algorithm>
 using namespace std;
 
+char name[40010][5];
+
 int main()
 {
-    vector<string> vs[2505];
+    vector<int> vs[2505];
     int n, m;
     scanf("%d %d", &n, &m);
     int num, sId, cId;
-    string sName;
-    while(n--)
+    for(int i = 0; i < n; ++i)
     {
-        cin >> sName >> num;
+        scanf("%s %d", name[i], &num);
         while(num--)
         {
             scanf("%d", &cId);
-            vs[cId - 1].push_back(sName);
+            vs[cId].push_back(i);
         }
     }
     for(int i = 0; i < m; ++i)
     {
         sort(vs[i].begin(), vs[i].end());
         printf("%d %d\n", i + 1, vs[i].size());
-        for(auto a:vs[i])
-            cout << a << endl;
+        for(int j = 0; j < vs[i].size(); ++j)
+            printf("%s\n", name[vs[i][j]]);
     }
 
     return 0;

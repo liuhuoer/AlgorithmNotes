@@ -17,6 +17,7 @@ int getId(string a)
         res = res * 26 + a[i] - 'A';
     }
     res = res * 10 + a[3] - '0';
+    return res;
 }
 
 int main()

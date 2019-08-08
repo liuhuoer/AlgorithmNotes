@@ -55,11 +55,11 @@ int main()
             printf("%05d %d %05d\n", node[j].address, node[j].data, node[j - 1].address);
         }
         printf("%05d %d ", node[i * k].address, node[i * k].data);
-        if(i != n / k - 1)
+        if(i < n / k - 1)
         {
             printf("%05d\n", node[(i + 2) * k].address);
         }else{
-            if(n / k == 0)
+            if(n % k == 0)
             {
                 printf("-1\n");
             }
@@ -67,9 +67,10 @@ int main()
             {
                 printf("%05d\n", node[(i + 1) * k].address);
                 for(int a = (i + 1) * k; a < n; ++a)
+                //for(int a = n / k * k; a < n; ++a)
                 {
                     printf("%05d %d ", node[a].address, node[a].data);
-                    if(a != n - 1)
+                    if(a < n - 1)
                         printf("%05d\n", node[a].next);
                     else
                         printf("-1\n");

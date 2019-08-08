@@ -25,25 +25,22 @@ struct Big
 Big add(Big a, Big b)
 {
     Big c;
-    int up = 0, i;
-    for(i = 0; i < a.len; ++i)
+    int up = 0;
+    for(int i = 0; i < a.len || i < b.len; ++i)
     {
-        up = up + a.num[i] + b.num[i];
-        c.num[i] = up % 10;
-        up /= 10;
+        int tmp = up + a.num[i] + b.num[i];
+        c.num[c.len++] = tmp % 10;
+        up = tmp / 10;
     }
-    while(up != 0)
-    {
-        c.num[i++] = up % 10;
-        up /= 10;
-    }
-    c.len = i;
+    if(up != 0)
+        c.num[c.len++] = up;
     return c;
 }
 
 Big reverse(Big a)
 {
     Big c;
+    c.len = a.len;
     for(int i = 0; i < a.len; ++i)
     {
         c.num[i] = a.num[a.len - 1 - i];
@@ -53,7 +50,7 @@ Big reverse(Big a)
 
 bool check(Big a)
 {
-    for(int i = 0; i < a.len / 2; ++i)
+    for(int i = 0; i <= a.len / 2; ++i)
     {
         if(a.num[i] != a.num[a.len - 1 - i])
             return false;
@@ -67,6 +64,7 @@ void printBig(Big a)
     {
         printf("%d", a.num[i]);
     }
+    printf("\n");
 }
 
 int main()
@@ -76,18 +74,14 @@ int main()
     cin >> str1 >> k;
     Big big1(str1), big2;
     int i;
-    for(i = 0; i < k; ++i)
+    for(i = 0; i < k && check(big1) == false; ++i)
     {
-        big2 = reverse(big1);
+        big2 = big1;
+        big2 = reverse(big2);
         big1 = add(big1, big2);
-        if(check(big1))
-        {
-            ++i;
-            break;
-        }
     }
     printBig(big1);
-    printf("\n%d", i);
+    printf("%d\n", i);
 
     return 0;
 }

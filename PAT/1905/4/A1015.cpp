@@ -4,7 +4,9 @@ using namespace std;
 
 bool isPrame(int n)
 {
-    int sqr = sqrt(n);
+    if(n <= 1)
+        return false;
+    int sqr = (int)sqrt(1.0 * n);
     for(int i = 2; i <= sqr; ++i)
     {
         if(n % i == 0)
@@ -15,7 +17,7 @@ bool isPrame(int n)
 
 int reverse(int N, int radix)
 {
-    int itoc[40005];
+    int itoc[10005];
     int count = 0, res = 0;
     do{
         itoc[count++] = N % radix;

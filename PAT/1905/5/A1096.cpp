@@ -8,7 +8,7 @@ int main()
 {
     ll n;
     scanf("%lld", &n);
-    ll sqr = sqrt(n), len = 0, maxLen = 0, firstN;
+    ll sqr = (ll)sqrt(1.0 * n), len = 0, maxLen = 0, firstN;
     for(int i = 2; i <= sqr; ++i)
     {
         if(n % i == 0)
@@ -38,8 +38,6 @@ int main()
             printf("%lld", firstN + i);
             if(i < maxLen - 1)
                 printf("*");
-            else
-                printf("\n");
         }
     }
 

@@ -1,7 +1,7 @@
 #include <cstdio>
 
 int minimum = 1000000005;
-int sum[105];
+int sum[100005];
 
 int binarySearch(int left, int right, int t)
 {

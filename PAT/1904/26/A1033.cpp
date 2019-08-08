@@ -37,7 +37,7 @@ int main()
 
     if(sta[0].distance != 0)
     {
-        printf("The maximum travel diatance = 0\n");
+        printf("The maximum travel distance = 0.00\n");
         return 0;
     }
     else{
@@ -63,7 +63,7 @@ int main()
             }
             if(station_min == -1)
             {
-                printf("The maximum travel diatance = %.2lf\n", sta[now].distance + MAX);
+                printf("The maximum travel distance = %.2lf\n", sta[now].distance + MAX);
                 return 0;
             }
             
@@ -87,13 +87,21 @@ int main()
             }
             now = station_min;
         }
-        printf("%.2f", cost);
+        printf("%.2f\n", cost);
     }
 
 
     return 0;
 }
 
+/*
+        if(now == N)
+        {
+            printf("%.2f\n", cost);
+        }else{
+            printf("The maximum travel distance = %.2f\n", sta[now].distance + MAX);
+        }
+*/
 
 
 /*

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void query(map<string, set<int>> mp, string str)
+void query(map<string, set<int>>& mp, string & str)
 {
     if(mp.find(str) == mp.end())
        printf("Not Found\n");
@@ -22,13 +22,12 @@ int main()
 {
     int n, id;
     string title, author, keys, publisher, year;
-    char c;
     map<string, set<int>> tit2id, aut2id, key2id, pub2id, yea2id;
     scanf("%d", &n);
     for(int i = 0; i < n; ++i)
     {
         scanf("%d", &id);
-        getchar();      // remove enter
+        char c = getchar();      // remove enter
         getline(cin, title);
         tit2id[title].insert(id);
         getline(cin, author);
@@ -52,27 +51,20 @@ int main()
     scanf("%d", &m);
     for(int i = 0; i < m; ++i)
     {
-        scanf("%d:", &num);
+        scanf("%d: ", &num);
         getline(cin, str);
         //cin >> num >> ":" >> str;
-        switch(num)
-        {
-            case 1:
-                query(tit2id, str);
-                break;
-            case 2:
-                query(aut2id, str);
-                break;
-            case 3:
-                query(key2id, str);
-                break;
-            case 4:
-                query(pub2id, str);
-                break;
-            case 5:
-                query(yea2id, str);
-                break;
-        }
+        cout << num << ": " << str << endl;
+        if(num == 1)
+            query(tit2id, str);
+        else if(num == 2)
+            query(aut2id, str);
+        else if(num == 3)
+            query(key2id, str);
+        else if(num == 4)
+            query(pub2id, str);
+        else
+            query(yea2id, str);
     }
 
     return 0;

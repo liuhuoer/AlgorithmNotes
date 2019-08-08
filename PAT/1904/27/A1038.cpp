@@ -27,7 +27,7 @@ int main()
     {
         res += input[i];
     }
-    if(res.size() != 0 && res[0] == '0')
+    while(res.size() != 0 && res[0] == '0')
         res.erase(res.begin());
 
     if(res.size() == 0)

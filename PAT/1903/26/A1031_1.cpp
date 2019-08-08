@@ -1,13 +1,25 @@
 #include <cstdio>
+#include <iostream>
+#include <string>
 #include <cstring>
+
+using namespace std;
 
 int main() 
 {
+	/*
 	char strs[100], res[40][40];
+	//input
+	gets(cin, strs);
+	int N = strlen(strs);
+	*/
+    string strs;
+	char res[40][40];
 
 	//input
-	gets(strs);
-	int N = strlen(strs);
+	getline(cin, strs);
+	int N = strs.size();
+
 	int n1 = (N + 2) / 3, n2 = N + 2 - 2 * n1;
 	//init
 	for(int i = 0; i < n1; ++i)

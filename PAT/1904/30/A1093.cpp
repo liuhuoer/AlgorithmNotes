@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const int MAXN = 105;
+const int MAXN = 100005;
 const int MOD = 1000000007;
 
 int main()

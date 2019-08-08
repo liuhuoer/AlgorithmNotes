@@ -1,13 +1,17 @@
 #include <cstdio>
 #include <cstring>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
 	//input
-	char input[10010];
-	gets(input);
+	string input;
+	getline(cin, input);
 	//get position of E
-	int len = strlen(input);
+	int len = input.size();
 	int pos = 0;
 	for(int i = 0; i < len; ++i)
 	{
@@ -26,7 +30,7 @@ int main()
 	//if exponent == 0
 	if(exp == 0)
 		for(int i = 1; i < pos; ++i)
-			printf("%s", input[i]);
+			cout << input[i] << endl;
 	//calculate position of point and output
 	if(input[pos + 1] == '-')
 	{

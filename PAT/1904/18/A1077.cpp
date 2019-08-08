@@ -1,10 +1,14 @@
 #include <cstdio>
 #include <cstring>
+#include <string>
+#include <iostream>
 
+using namespace std;
 
-void reserve(char* input)
+//void reserve(char* input)
+void reserve(string & input)
 {
-	int len = strlen(input);
+	int len = input.size();
 	for(int i = 0; i < len / 2; ++i)
 	{
 		int temp = input[i];
@@ -15,7 +19,8 @@ void reserve(char* input)
 
 int main()
 {
-    char input[105][260];
+	string input[105];
+    //char input[105][260];
 	//input to n, char[][]
 	int n;
 	int mini_len = 260;
@@ -24,10 +29,12 @@ int main()
 	for(int i = 0; i < n; ++i)
 	{
 		//scanf("%s", &input[i]);
-		gets(input[i]);
+		getline(cin, input[i]);
+		//gets(input[i]);
 		//reserve
 		reserve(input[i]);
-		int len = strlen(input[i]);
+		//int len = strlen(input[i]);
+		int len = input[i].size();
 		if(len < mini_len)
 			mini_len = len;
 	}
@@ -48,6 +55,8 @@ int main()
 		}
 		if(flag)
 			++len_word;
+		else
+			break;
 	}
 	if(len_word)
 	{

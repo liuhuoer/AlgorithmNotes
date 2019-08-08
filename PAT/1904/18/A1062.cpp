@@ -8,7 +8,7 @@ struct student
 {
     char id[10];
     int de, cai, type;      //type->[1, 5]
-};
+} stu[100010];
 
 bool cmp(student a, student b)
 {
@@ -25,8 +25,6 @@ bool cmp(student a, student b)
 
 int main()
 {
-    struct student stu[10010];
-
     int n, L, H;
     scanf("%d %d %d", &n, &L, &H);
     int count = 0;          // the num of stu, who's all grades > 60

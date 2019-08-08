@@ -28,8 +28,8 @@ bool cmp_time(Car a, Car b)
 
 int main()
 {
-    Car all[105], valid[105];
-    int query[805];
+    Car all[10005], valid[10005];
+    int query[8005];
     int N, M;
     scanf("%d %d", &N, &M);
     int hor, min, sec;

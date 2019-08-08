@@ -10,13 +10,18 @@ struct Node
     Node()
     {
         key = MAXN;
+        flag = false;
     }
     int address, key, next;
+    bool flag;
 } node[MAXN];
 
 bool cmp(Node a, Node b)
 {
-    return a.key < b.key;
+    if(a.flag == false || b.flag == false)
+        return a.flag > b.flag;
+    else
+        return a.key < b.key;
 }
 
 int main()
@@ -28,7 +33,7 @@ int main()
     for(int i = 0; i < n; ++i)
     {
         scanf("%d", &address);
-        scanf("%d %d", &node[address].key, &node[address].next);
+        scanf("%d%d", &node[address].key, &node[address].next);
         node[address].address = address;
     }
 
@@ -36,24 +41,25 @@ int main()
     int count = 0;
     for(int p = first; p != -1;)
     {
+        node[p].flag = true;
         ++count;
         p = node[p].next;
     }
 
-    // sort
-    sort(node, node + MAXN, cmp);
-    first = node[0].address;
-
     // output
-    printf("%d %d\n", count, first);
     if(count == 0)
     {
-        printf("0 -1\n");
+        printf("0 -1");
     }else{
+        // sort
+        sort(node, node + MAXN, cmp);
+        first = node[0].address;
+
+        printf("%d %05d\n", count, first);
         for(int i = 0; i < count; ++i)
         {
             printf("%05d %d ", node[i].address, node[i].key);
-            if(i != n - 1)
+            if(i != count - 1)
             {
                 node[i].next = node[i + 1].address;
                 printf("%05d\n", node[i].next);

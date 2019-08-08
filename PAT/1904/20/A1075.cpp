@@ -122,18 +122,30 @@ int main()
         if(stu[i].pass)
         {
             printf("%d %05d %d ", rank, stu[i].id, stu[i].grade_sum);
+
+            /*
+            * for(int j = 0; j < K; ++j)
+            * {
+            *     if(stu[i].grade[j] >= 0)
+            *         printf("%d", stu[i].grade[j]);
+            *     else if(stu[i].grade[j] == -1)
+            *         printf("-");
+            *   
+            *     if(j != K - 1)
+            *         printf(" ");
+            *     else
+            *         printf("\n");
+            * }
+            */
+
             for(int j = 0; j < K; ++j)
             {
-                if(stu[i].grade[j] >= 0)
-                    printf("%d", stu[i].grade[j]);
-                else if(stu[i].grade[j] == -1)
-                    printf("-");
-
-                if(j != K - 1)
-                    printf(" ");
+                if(stu[i].grade[j] == -1)
+                    printf(" -");        
                 else
-                    printf("\n");
+                    printf(" %d", stu[i].grade[j]);
             }
+            printf("\n");
         }
 
     }
